@@ -17,7 +17,7 @@ import com.sun.tools.javac.util.List;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjectModel.LandingPage;
 
-public class StandalonTest {
+	public class StandalonTest{
 
 	private static final String Iterate = null;
 
