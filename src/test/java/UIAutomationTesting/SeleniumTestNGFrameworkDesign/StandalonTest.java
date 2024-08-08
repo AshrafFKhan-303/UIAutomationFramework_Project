@@ -14,10 +14,12 @@ import org.testng.Assert;
 
 import com.sun.tools.javac.util.List;
 
+import abstractComponent.AbstractComponent;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjectModel.LandingPage;
+import pageObjectModel.ProductCatalog;
 
-public class StandalonTest {
+public class StandalonTest{
 
 	private static final String Iterate = null;
 
@@ -44,19 +46,44 @@ public class StandalonTest {
 		 * driver.findElement(By.id("login")).click();
 		 */
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		
-		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".col-lg-4")));
+		ProductCatalog productCatalogPage = new ProductCatalog(driver);
+		List<WebElement> products = productCatalogPage.getProducts();
 		
-		java.util.List<WebElement> products = driver.findElements(By.cssSelector(".col-lg-4"));
-		WebElement prod = products.stream().filter(product->
-		product.findElement(By.cssSelector("b")).getText().equalsIgnoreCase(item)).findFirst().orElse(null);
-		prod.findElement(By.cssSelector("button:last-of-type")).click();
+
+		/*
+		 * WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		 * 
+		 * //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(
+		 * ".col-lg-4")));
+		 * 
+		 * java.util.List<WebElement> products =
+		 * driver.findElements(By.cssSelector(".col-lg-4"));
+		 */
 		
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#toast-container")));
-        
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ng-animating")));
-        
+		
+		
+		/*
+		 * WebElement prod = products.stream().filter(product->
+		 * product.findElement(By.cssSelector("b")).getText().equalsIgnoreCase(item)).
+		 * findFirst().orElse(null);
+		 * prod.findElement(By.cssSelector("button:last-of-type")).click();
+		 */
+		
+		WebElement actualProduct = productCatalogPage.getProductByName(item);
+		
+		productCatalogPage.addProductToCart(actualProduct);
+		
+		
+		
+		/*
+		 * WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(
+		 * "#toast-container")));
+		 * 
+		 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(
+		 * ".ng-animating")));
+		 */
         driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
 
         java.util.List<WebElement> cartItem = driver.findElements(By.cssSelector(".cartSection h3"));
