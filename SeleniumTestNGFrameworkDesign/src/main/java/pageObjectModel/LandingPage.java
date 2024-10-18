@@ -6,13 +6,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPage {
+import abstractComponenets.AbstractComponenet;
+
+public class LandingPage extends AbstractComponenet{
     
 	WebDriver driver = null;
 	
 	public LandingPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
-	PageFactory.initElements(driver, this);	
+	    PageFactory.initElements(driver, this);	
 	}
 	
 	/*
