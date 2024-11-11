@@ -1,4 +1,4 @@
-package pageObjectModel;
+package UIAutomation.pageObjectModel;
 
 import java.util.List;
 import org.openqa.selenium.By;
@@ -8,8 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
-import abstractComponenets.AbstractComponenet;
+import UIAutomation.abstractComponenets.AbstractComponenet;
 
 public class productPage extends AbstractComponenet {
 
@@ -27,9 +26,6 @@ public class productPage extends AbstractComponenet {
 	
 	By listOfProductsApper = By.cssSelector(".col-lg-4");
 	By addToCart = By.cssSelector("button:last-of-type");
-			
-	@FindBy(css = "[routerlink*='cart']")
-	WebElement cartButton;
 	
 	By toastMessage = By.cssSelector("#toast-container");
 	
@@ -63,16 +59,7 @@ public class productPage extends AbstractComponenet {
 		
 		//Elemet tbe disapper
 		waitElementToBeDissAppear(spinner);
-	}
-	
-
-	//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#toast-container")));
-
-	//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ng-animating")));
-
-	public void clickOnCart() {
-
-		cartButton.click();
+		
 	}
 	
 }

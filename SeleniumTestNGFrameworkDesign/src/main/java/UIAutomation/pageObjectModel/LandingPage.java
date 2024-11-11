@@ -1,4 +1,4 @@
-package pageObjectModel;
+package UIAutomation.pageObjectModel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import abstractComponenets.AbstractComponenet;
+import UIAutomation.abstractComponenets.AbstractComponenet;
 
 public class LandingPage extends AbstractComponenet{
     
@@ -33,14 +33,27 @@ public class LandingPage extends AbstractComponenet{
 	@FindBy(id="login")
 	 WebElement login;
  
-	public void loginApplication(String usermail,String userPassword) {
+	//Customized CSS Selector
+	@FindBy(css="[class*='flyInOut']")
+	WebElement errorMessage;
+	
+	public productPage loginApplication(String usermail,String userPassword) {
+	
 		userEmail.sendKeys(usermail);	
 		usePassword.sendKeys(userPassword);	
 		login.click();
+		productPage productPage = new productPage(driver);
+		return productPage;
 	}
 	
 	public void goTo() {
 	  driver.get("https://rahulshettyacademy.com/client");
+	}
+	
+	public String getErrorMessage() {
+		
+		waitElementToBeAppear(errorMessage);
+	   return errorMessage.getText();
 	}
 }
    	

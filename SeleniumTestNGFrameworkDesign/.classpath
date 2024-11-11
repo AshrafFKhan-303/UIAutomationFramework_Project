@@ -18,6 +18,29 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Am/.m2/repository/org/testng/testng/7.10.2/testng-7.10.2.jar" sourcepath="C:/Users/Am/.m2/repository/org/testng/testng/7.10.2/testng-7.10.2-sources.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.testng"/>
+			<attribute name="maven.artifactId" value="testng"/>
+			<attribute name="maven.version" value="7.10.2"/>
+			<attribute name="maven.scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Am/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2.jar" sourcepath="C:/Users/Am/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="dev.failsafe"/>
+			<attribute name="maven.artifactId" value="failsafe"/>
+			<attribute name="maven.version" value="3.3.2"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
